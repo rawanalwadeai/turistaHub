@@ -1,10 +1,20 @@
 import BookingCar from "../models/BookingCar.js";
+import { sendEmail } from '../utils/email.js'
 
 export const createBooking = async (req ,res) => {
     const newBooking = new BookingCar(req.body)
 
 try{
  const savedBooking = await newBooking.save()
+
+ 
+         await sendEmail( 
+   savedBooking.userEmail,
+   'Booking Received – Awaiting Payment',
+   `Dear ${savedBooking.fullName},\n\nWe have received your booking for the car .\n\nYour booking is currently pending until the payment is completed.\n\nThank you for choosing our service!`
+ )
+
+ 
     res.status(200).json({
         success:true,
         message:'Car is booked',

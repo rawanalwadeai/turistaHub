@@ -1,4 +1,5 @@
 import BookingHouse from '../models/BookingHouse.js';
+import { sendEmail } from '../utils/email.js'
 
 // Create new house booking
 export const createHouseBooking = async (req, res) => {
@@ -8,6 +9,17 @@ export const createHouseBooking = async (req, res) => {
 
   try {
     const savedBooking = await newBooking.save();
+ 
+  
+        await sendEmail( 
+  savedBooking.userEmail,
+  'Booking Received – Awaiting Payment',
+  `Dear ${savedBooking.fullName},\n\nWe have received your booking for the house **${savedBooking.placeName}** .\n\nYour booking is currently pending until the payment is completed.\n\nThank you for choosing our service!`
+)
+
+    
+    
+    
     res.status(200).json({
       success: true,
       message: 'Your house has been booked successfully.',

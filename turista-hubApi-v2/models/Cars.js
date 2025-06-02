@@ -8,17 +8,21 @@ const carSchema = new mongoose.Schema(
     },
     model: {
       type: String,
-      required: true
+      // required: true
     },
     year: {
       type: Number,
-      required: true
+      // required: true
     },
     price: {
       type: Number,
       required: true
     },
-    address: {
+    address: { // ممكن احذفه بعدين لو ضبط السيتي 
+      type: String,
+      // required: true
+    },
+     city: {
       type: String,
       required: true
     },
@@ -31,7 +35,7 @@ const carSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
-      required: true
+      // required: true
     },
     reviews: [
       {
@@ -54,7 +58,7 @@ const carSchema = new mongoose.Schema(
 
     location: { // الموقع
       type: String,
-      required: true,
+      // required: true,
     },
     insurance: { // نوع التأمين
       type: String,

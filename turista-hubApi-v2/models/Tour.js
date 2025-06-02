@@ -9,11 +9,11 @@ const tourSchema = new mongoose.Schema(
     },
     city: {
       type: String,
-      required: true,
+      // required: true,
     },
     address: {
       type: String,
-      required: true,
+      // required: true,
     },
 
     tourDate: { 
@@ -21,7 +21,7 @@ const tourSchema = new mongoose.Schema(
       
     photo: {
       type: String,
-      required: true,
+      // required: true,
     },
     desc: {
       type: String,
@@ -33,7 +33,7 @@ const tourSchema = new mongoose.Schema(
     },
     maxGroupSize: {
       type: Number,
-      required: true,
+      // required: true,
     },
     reviews: [
       {
@@ -51,7 +51,7 @@ const tourSchema = new mongoose.Schema(
     },
     internet: {
       type: Boolean,
-      required: true,
+      // required: true,
     },
     familyFriendly: {
       type: Boolean,
@@ -73,7 +73,7 @@ const tourSchema = new mongoose.Schema(
     },
     guideIncluded: {
       type: Boolean,
-      required: true,
+      // required: true,
     },
     // languages: {
     //   type: [String], // اللغات المتاحة
@@ -81,7 +81,7 @@ const tourSchema = new mongoose.Schema(
     // },
     mealsIncluded: {
       type: Boolean,
-      required: true,
+      // required: true,
     },
   },
   { timestamps: true }

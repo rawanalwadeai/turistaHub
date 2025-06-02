@@ -15,6 +15,7 @@ export const createTranslator = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to create translator, try again",
+      error:err.message
     });
   }
 };

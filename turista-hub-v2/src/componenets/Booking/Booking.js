@@ -15,12 +15,13 @@ const Booking = ({ tour, avgRating }) => {
 
   const [booking, setBooking] = useState({
     userId: user && user._id,
+     tourId: tour && tour._id,
     userEmail: user && user.email,
     tourName: title,
     fullName: '',
     phone: '',
     guestSize: 1,
-    bookAt: ''
+    bookAt: '',
   })
 
   const handleChange = e => {
@@ -53,7 +54,13 @@ const Booking = ({ tour, avgRating }) => {
         return toast.info(result.message)
       }
 
-      navigate("/thank-you")
+
+     const bookingId = result.data._id
+// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
+navigate(`/payment/tour/${bookingId}`)
+
+
+
     } catch (err) {
       toast.error(err.message)
     }

@@ -17,7 +17,7 @@ res.status(200).json({
 })
 
     }catch(err){
-        res.status(500).json({success :false , message:'Failled to add, Try again'})
+        res.status(500).json({success :false , message:'Failled to add, Try again ' , error:err.message})
 
     }
 }

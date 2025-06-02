@@ -16,6 +16,7 @@ const BookingCar = ({ car, avgRating }) => {
 
   const [booking, setBooking] = useState({
     userId: user && user._id,
+    // carId: car && car._id,
     userEmail: user && user.email,
     carId: car._id,
     fullName: '',
@@ -23,6 +24,7 @@ const BookingCar = ({ car, avgRating }) => {
     rentalDays: 1,
     pickupDate: '',
     endDate: '',
+    
   });
 
   const handleChange = e => {
@@ -75,8 +77,13 @@ const BookingCar = ({ car, avgRating }) => {
         return toast.error(result.message);
       }
 
-      navigate('/thank-you');
-    } catch (err) {
+   const bookingId = result.data._id
+// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
+navigate(`/payment/car/${bookingId}`)
+
+
+
+} catch (err) {
       toast.error(err.message);
     }
   };

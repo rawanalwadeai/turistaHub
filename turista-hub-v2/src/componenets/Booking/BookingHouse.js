@@ -15,6 +15,7 @@ const BookingHouse = ({ house, avgRating }) => {
 
   const [credentials, setCredentials] = useState({
     userId: user && user._id,
+    houseId: house && house._id,
     userEmail: user && user.email,
     fullName: '',
     placeName: title,
@@ -52,8 +53,13 @@ const BookingHouse = ({ house, avgRating }) => {
         return toast.error(result.message);
       }
 
-      navigate('/thank-you');
+      // navigate('/thank-you');
+   const bookingId = result.data._id
+// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
+navigate(`/payment/house/${bookingId}`)
+
     } catch (err) {
+
       toast.error(err.message);
     }
   };

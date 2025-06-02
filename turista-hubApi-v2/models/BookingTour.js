@@ -1,10 +1,16 @@
 import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema(
-  {
-    userId: {
-      type: String,
+  { 
+    
+   
+    tourId: {
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Tour",
+    },
+     userId: {
+     type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     userEmail: {
       type: String,
@@ -22,13 +28,24 @@ const bookingSchema = new mongoose.Schema(
         required:true
     },
     phone: {
-        type:Number,
+        type:String,
         required:true
     },
     bookAt: {
         type:Date,
-        required:false
+        required:false,
+         default: Date.now,
     },
+
+      tourDate: { 
+      type: Date},
+
+    paymentStatus:{
+      type:String,
+      enum:["pending", "paid", "cancelled"],
+      default:"pending"
+    }
+
   },
   { timestamps: true }
 );

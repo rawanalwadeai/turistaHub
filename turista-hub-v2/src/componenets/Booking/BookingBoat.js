@@ -15,6 +15,7 @@ const BookingBoat = ({ boat, avgRating }) => {
 
   const [credentials, setCredentials] = useState({
     userId: user && user._id,
+    boatId:boat && boat._id,
     userEmail: user && user.email,
     fullName: '',
     boatName: boat_name,
@@ -51,8 +52,13 @@ const BookingBoat = ({ boat, avgRating }) => {
       const result = await res.json();
       if (!res.ok) return toast.error(result.message);
 
-      navigate('/thank-you');
-    } catch (err) {
+   const bookingId = result.data._id
+// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
+navigate(`/payment/boat/${bookingId}`)
+
+
+
+} catch (err) {
       toast.error(err.message);
     }
   };

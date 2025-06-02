@@ -4,8 +4,13 @@ const bookingCarSchema = new mongoose.Schema(
 
 
     {
+        userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+
  carId:{
-    type:String,
+    type:mongoose.Schema.Types.ObjectId,
     ref:'Cars'
  },
 
@@ -20,7 +25,7 @@ const bookingCarSchema = new mongoose.Schema(
  },
 
  phone: {
-    type:Number,
+    type:String,
     required : true
  },
  rentalDays:{
@@ -34,6 +39,13 @@ const bookingCarSchema = new mongoose.Schema(
  returnDate: {
     type: Date, // نحسبه لاحقًا بناءً على pickupDate + rentalDays
   },
+
+  paymentStatus:{
+      type:String,
+      enum:["pending", "paid", "cancelled"],
+      default:"pending"
+    }
+
 
     },
 

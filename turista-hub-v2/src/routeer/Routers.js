@@ -20,7 +20,7 @@ import BoatDetails from '../pages/BoatDetails';
 import RegisterProvider from '../pages/RegisterProvider';
 import LoginProvider from '../pages/LoginProvider';
 import ProviderDashboard from '../pages/dashboard/ProviderDashboard';
-
+import Payment from '../pages/Payment';
 
 
 const Routers = () => {
@@ -50,10 +50,14 @@ const Routers = () => {
 
       <Route path='/thank-you' element={<ThankYou />}></Route>
       <Route path='/tour/search' element={<SearchResultList />} />
+      <Route path='/payment/:type/:id' element={<Payment/>}/>
 
       <Route path="*" element={<h2 style={{ textAlign: 'center' }}>404 - Page Not Found</h2>} />
 
       <Route path='/provider-dashboard' element={<ProviderDashboard />} />
+
+
+
 
 
     </Routes>

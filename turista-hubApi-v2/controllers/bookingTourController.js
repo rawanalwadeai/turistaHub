@@ -1,5 +1,6 @@
 import BookingTour from '../models//BookingTour.js'
 
+import { sendEmail } from '../utils/email.js'
 
 
 
@@ -11,6 +12,20 @@ const newBooking = new BookingTour(req.body)
 
     try{
 const savedBooking = await newBooking.save()
+
+
+
+
+
+
+ await sendEmail( 
+      savedBooking.userEmail,
+      'Booking Received – Awaiting Payment',
+      `Dear ${savedBooking.fullName},\n\nWe have received your booking for the ${savedBooking.tourDate} tour scheduled on ${savedBooking.tourDate}.\n\nYour booking is pending until payment is completed.\n\nThank you for choosing our service!`
+    )
+
+    
+
 res.status(200).json({
     success: true,
     message: 'Your tour is booked',
@@ -26,6 +41,7 @@ res.status(200).json({
 
     }
 }
+
 
 
 

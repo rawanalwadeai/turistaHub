@@ -15,6 +15,7 @@ export const addBoat = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Failed to add, try again',
+      error:err.message
     })
   }
 }

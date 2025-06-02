@@ -34,7 +34,7 @@ const houseSchema = new mongoose.Schema(
 
     photo: {
       type: String,
-      required: true
+      // required: true
     },
 
     reviews: [

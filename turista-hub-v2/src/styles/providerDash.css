@@ -1,0 +1,19 @@
+/* custom.css */
+.btn-primary {
+  background-color: #faa935 !important;  /* لون برتقالي */
+  border-color:#faa935 !important;
+}
+
+.nav-tabs .nav-link.active {
+  color:#faa935 !important;
+  border-color: #faa935 !important;
+}
+
+
+.tex{
+color:#faa935;
+}
+
+.text{
+color:black !important;
+}

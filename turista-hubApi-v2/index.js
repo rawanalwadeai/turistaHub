@@ -19,6 +19,7 @@ import carRoute from './routes/cars.js'
 import translatorRoute from './routes/translator.js'
 import boatRoute from './routes/boats.js'
 import searchRoute from './routes/search.js'
+import paymentRoute from './routes/payment.js'
 
 
 
@@ -74,6 +75,8 @@ app.use('/api/v1/cars' , carRoute)
 app.use('/api/v1/translator' , translatorRoute)
 app.use('/api/v1/boats' , boatRoute)
 app.use('/api/v1/search' , searchRoute)
+app.use('/api/v1/payment' , paymentRoute)
+
 
 
 
